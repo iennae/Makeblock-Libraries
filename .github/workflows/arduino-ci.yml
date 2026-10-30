@@ -1,0 +1,54 @@
+name: Arduino CI (Original mBot / mCore)
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  arduino-lint:
+    name: Lint Arduino Library Metadata
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Arduino Lint
+        uses: arduino/arduino-lint-action@v1
+        with:
+          project-type: library
+          library-manager: false
+          compliance: specification
+
+  compile-mbot-sketches:
+    name: Compile Original mBot (mCore / Arduino Uno) Sketches
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile mBot Firmwares & Core Sensor Sketches (arduino:avr:uno)
+        uses: arduino/compile-sketches@v1
+        with:
+          fqbn: arduino:avr:uno
+          platforms: |
+            - name: arduino:avr
+          libraries: |
+            - source-path: ./
+            - name: Servo
+          sketch-paths: |
+            - examples/Firmware_For_mBlock/mbot_firmware
+            - examples/Firmware_For_mBlock/mbot_factory_firmware
+            - examples/Me_Buzzer/MbotBuzzerTest2
+            - examples/Me_ColorSensor/MeColorSensorTestMcore
+            - examples/Me_AudioPlayer/SimplePlayback
+            - examples/Me_UltrasonicSensor/UltrasonicSensorTest
+            - examples/Me_LineFollower/LineFollowerTest
+            - examples/Me_RGBLed/ColorLoopTest
+            - examples/Me_LightSensor/MeLightSensorTest
+            - examples/Me_DCMotor/DCMotorDriverTest
