@@ -305,8 +305,6 @@ void sendShort(double value){
      valShort.shortVal = value;
      writeSerial(valShort.byteVal[0]);
      writeSerial(valShort.byteVal[1]);
-     writeSerial(valShort.byteVal[2]);
-     writeSerial(valShort.byteVal[3]);
 }
 void sendDouble(double value){
      writeSerial(5);
