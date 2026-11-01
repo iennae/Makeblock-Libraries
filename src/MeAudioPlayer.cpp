@@ -250,7 +250,6 @@ void MeAudioPlayer::playMusicFileName(String str)
 {
   uint8_t len = 0;
   uint8_t str_len = 0;
-  uint8_t i = 0;
   char temp[10];
   char temp_ch;
   str_len = str.length();
@@ -452,10 +451,6 @@ void MeAudioPlayer::setMusicVolume(uint8_t vol)
   {
     vol = 24;
   }
-  if (vol < 0)
-  {
-    vol = 0;
-  }
   writebuffer[0] = MECODE_START;
   writebuffer[1] = len;
   writebuffer[2] = MEVOLUME_CTL;
@@ -495,10 +490,6 @@ void MeAudioPlayer::setMusicPlayMode(uint8_t mode)
   {
     mode = 0;
   }
-  if (mode < 0)
-  {
-    mode = 0;
-  }
   writebuffer[0] = MECODE_START;
   writebuffer[1] = len;
   writebuffer[2] = MESET_PLAY_MODE;
@@ -531,7 +522,6 @@ void MeAudioPlayer::startRecordingFileName(String str)
 {
   uint8_t len = 0;
   uint8_t str_len = 0;
-  uint8_t i = 0;
   char temp[20];
   char temp_ch;
   str_len = str.length();
@@ -615,7 +605,6 @@ void MeAudioPlayer::deleteFileName(String str)
 {
   uint8_t len = 0;
   uint8_t str_len = 0;
-  uint8_t i = 0;
   char temp[20];
   char temp_ch;
   str_len = str.length();
@@ -745,7 +734,6 @@ writebuffer[2] = MESET_VOLUME_DOWN;
  */
 void MeAudioPlayer::getFirmwareVersion(char *buffer)
 {
-  int16_t i = 0;
   int8_t return_value = 0;
   uint8_t reg = GET_VERSION_ADDR;
 

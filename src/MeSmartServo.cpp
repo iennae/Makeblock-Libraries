@@ -1053,11 +1053,13 @@ float MeSmartServo::getCurrentRequest(uint8_t devId)
  */
 void MeSmartServo::assignDevIdResponse(void *arg)
 {
+  (void)arg;
   //The arg from value[0]
   uint8_t DeviceId = 0;
   uint8_t ServiceId = 0;
   DeviceId = sysex.val.dev_id;
   ServiceId = sysex.val.srv_id;
+  (void)ServiceId;
   if(servo_num_max < DeviceId)
   {
     servo_num_max = DeviceId;
@@ -1165,6 +1167,7 @@ void MeSmartServo::smartServoEventHandle(void)
  */
 void MeSmartServo::errorCodeCheckResponse(void *arg)
 {
+  (void)arg;
   uint8_t DeviceId = 0;
   uint8_t ServiceId = 0;
   uint8_t errorcode = WRONG_TYPE_OF_SERVICE;
@@ -1175,6 +1178,8 @@ void MeSmartServo::errorCodeCheckResponse(void *arg)
     errorcode = sysex.val.value[0];
     resFlag |= 0x40;
   }
+  (void)DeviceId;
+  (void)errorcode;
 }
 
 /**
@@ -1193,6 +1198,7 @@ void MeSmartServo::errorCodeCheckResponse(void *arg)
  */
 void MeSmartServo::smartServoCmdResponse(void *arg)
 {
+  (void)arg;
   long angle_v;
   float speed_v;
   float temp_v;

@@ -48,7 +48,7 @@
  * @example MeHumitureSensorTest2.ino
  *
  * DERIVED FROM
- * /*####################################################################
+ * ####################################################################
  * FILE: dht11.cpp
  * VERSION: 0.4.5
  * PURPOSE: DHT11 Temperature & Humidity Sensor library for Arduino

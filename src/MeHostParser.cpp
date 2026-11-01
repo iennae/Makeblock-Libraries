@@ -130,10 +130,11 @@ uint8_t MeHostParser::pushStr(uint8_t * str, uint32_t length)
     }
     else
     {
-        for (int i = 0; i < length; ++i)
+        for (uint32_t i = 0; i < length; ++i)
         {
             pushByte(str[i]);
         }
+        return 1;
     }
 }
 

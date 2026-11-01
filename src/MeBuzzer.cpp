@@ -145,7 +145,7 @@ void MeBuzzer::tone(int pin, uint16_t frequency, uint32_t duration)
   int period = 1000000L / frequency;
   int pulse = period / 2;
   pinMode(buzzer_pin, OUTPUT);
-  for (long i = 0; i < duration * 1000L; i += period) 
+  for (uint32_t i = 0; i < duration * 1000UL; i += (uint32_t)period) 
   {
     digitalWrite(buzzer_pin, HIGH);
     delayMicroseconds(pulse);
@@ -176,7 +176,7 @@ void MeBuzzer::tone(uint16_t frequency, uint32_t duration)
   int period = 1000000L / frequency;
   int pulse = period / 2;
   pinMode(buzzer_pin, OUTPUT);
-  for (long i = 0; i < duration * 1000L; i += period) 
+  for (uint32_t i = 0; i < duration * 1000UL; i += (uint32_t)period) 
   {
     digitalWrite(buzzer_pin, HIGH);
     delayMicroseconds(pulse);

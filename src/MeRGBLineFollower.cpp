@@ -216,8 +216,6 @@ void MeRGBLineFollower::setpin(uint8_t AD0, uint8_t INT)
  */
 void MeRGBLineFollower::begin(void)
 {
-  uint8_t i;
-  
   Kp = 0.3;
   study_types = STUDY_IDLE;
   iic_error_count = 0;

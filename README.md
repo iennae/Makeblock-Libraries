@@ -50,6 +50,22 @@ If you have a discussion about licensing issues, please contact me (myan@makeblo
 
    MegaPi <------->  MeMegaPi.h
 
+### Original mBot (mCore / ATmega328P) Firmware & Python Setup
+
+The **original Makeblock mBot v1** uses the **mCore** mainboard (`ATmega328P`, compatible with `Arduino Uno` / `arduino:avr:uno`).
+
+- **Board Selection in Arduino IDE**: `Tools -> Board -> Arduino AVR Boards -> Arduino Uno`
+- **Header File for mBot Sketches**: Always include `#include <MeMCore.h>`
+- **Firmwares (`examples/Firmware_For_mBlock/`)**:
+  - `mbot_firmware/mbot_firmware.ino`: **Online / Serial Firmware** (115200 baud) required when controlling the mBot interactively from Python (`python-for-mbot`) or mBlock over USB serial, Bluetooth, or 2.4G.
+  - `mbot_factory_firmware/mbot_factory_firmware.ino`: **Factory Default Firmware** with IR remote control, obstacle avoidance, and line-following modes.
+- **mCore Onboard Pin Mapping (`MeMCore.h`)**:
+  - Onboard RGB LEDs (2x WS2812): `PORT_7`, `SLOT_2` (Pin 13)
+  - Onboard Light Sensor: `PORT_6` (`A6`)
+  - Onboard Button: `A7`
+  - Onboard Buzzer: Pin 8
+  - DC Motors: `M1` (Left) and `M2` (Right)
+
 ### Include guidance
 
 For sketches and examples, using the board header is the simplest option:

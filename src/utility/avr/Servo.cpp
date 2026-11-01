@@ -183,6 +183,7 @@ static void initISR(timer16_Sequence_t timer)
 
 static void finISR(timer16_Sequence_t timer)
 {
+    (void)timer;
     //disable use of the given timer
 #if defined WIRING   // Wiring
   if(timer == _timer1) {

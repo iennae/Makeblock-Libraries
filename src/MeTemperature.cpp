@@ -183,6 +183,7 @@ float MeTemperature::temperature(void)
   }
 
   present = _ts.reset();
+  (void)present;
   _ts.skip();
   _ts.write(READSCRATCH);
   for(i = 0; i < 5; i++)      // we need 9 bytes

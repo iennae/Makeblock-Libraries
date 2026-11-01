@@ -488,6 +488,7 @@ float MeEncoderMotor::getCurrentPosition()
 
   uint8_t temp[6] = {0};
   uint8_t size = encoderParser.getData(temp, 6);
+  (void)size;
   float pos = *((float *)(temp + 2));
   return pos;
 }

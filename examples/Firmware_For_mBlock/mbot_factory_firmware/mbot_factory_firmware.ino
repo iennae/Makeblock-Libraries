@@ -603,7 +603,6 @@ void modeA()
 void modeB()
 {
   uint8_t d = ultr.distanceCm(70);
-  static long time = millis();
   randomSeed(analogRead(6));
   uint8_t randNumber = random(2);
   if((d > high) || (d == 0))

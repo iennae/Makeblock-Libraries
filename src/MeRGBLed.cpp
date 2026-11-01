@@ -295,7 +295,7 @@ void MeRGBLed::setNumber(uint8_t num_leds)
   {
     printf("There is not enough space!\r\n");
   }
-  for(int16_t i = 0; i < count_led * 3; i++)
+  for(uint16_t i = 0; i < count_led * 3; i++)
   {
     pixels[i] = 0;
   }
@@ -305,7 +305,7 @@ void MeRGBLed::setNumber(uint8_t num_leds)
   {
     printf("There is not enough space!\r\n");
   }
-  for(int16_t i = 0; i < count_led * 3; i++)
+  for(uint16_t i = 0; i < count_led * 3; i++)
   {
     pixels_bak[i] = 0;
   }
@@ -378,7 +378,7 @@ uint8_t MeRGBLed::getNumber(void)
  */
 void MeRGBLed::fillPixelsBak(uint8_t red, uint8_t green, uint8_t blue)
 {
-  for(int16_t i = 0; i < count_led; i++)
+  for(uint16_t i = 0; i < count_led; i++)
   {
     uint8_t tmp = i * 3;
     pixels_bak[tmp] = green;
@@ -446,7 +446,7 @@ bool MeRGBLed::setColor(uint8_t index, uint8_t red, uint8_t green, uint8_t blue)
 {
   if(index == 0)
   {
-    for(int16_t i = 0; i < count_led; i++)
+    for(uint16_t i = 0; i < count_led; i++)
     {
       setColorAt(i,red,green,blue);
     }
@@ -502,7 +502,7 @@ bool MeRGBLed::setColor(uint8_t index, long value)
 {
   if(index == 0)
   {
-    for(int16_t i = 0; i < count_led; i++)
+    for(uint16_t i = 0; i < count_led; i++)
     {
       uint8_t tmp    = i * 3;
       uint8_t red    = (value & 0xff0000) >> 16;
