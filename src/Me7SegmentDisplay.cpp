@@ -445,10 +445,8 @@ void Me7SegmentDisplay::display(float value)
   bool isStart = false;
   uint8_t index = 0;
   uint8_t disp[]={0,0,0,0};
-  bool isNeg = false;
   if((float)value<0)
   {
-    isNeg = true;
     value = -value;
     disp[0] = 0x21;
     index++;

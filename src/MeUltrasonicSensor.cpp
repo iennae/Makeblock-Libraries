@@ -122,6 +122,7 @@ void MeUltrasonicSensor::setpin(uint8_t SignalPin)
  */
 double MeUltrasonicSensor::distanceCm(uint16_t MAXcm)
 {
+  (void)MAXcm;
   long distance = measure();
 
   if((((double)distance / 58.0) >= 400.0) || (distance == 0))
@@ -150,6 +151,7 @@ double MeUltrasonicSensor::distanceCm(uint16_t MAXcm)
  */
 double MeUltrasonicSensor::distanceInch(uint16_t MAXinch)
 {
+  (void)MAXinch;
   long distance = measure();
 
   if((((double)distance / 148.0) >= 400.0) || (distance == 0))
@@ -179,6 +181,7 @@ double MeUltrasonicSensor::distanceInch(uint16_t MAXinch)
  */
 long MeUltrasonicSensor::measure(unsigned long timeout)
 {
+  (void)timeout;
   long duration;
   if(millis() - _lastEnterTime > 23)
   {

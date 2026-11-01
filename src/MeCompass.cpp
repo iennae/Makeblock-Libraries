@@ -237,7 +237,7 @@ bool MeCompass::testConnection(void)
 double MeCompass::getAngle(void)
 {
   int16_t cx,cy,cz;
-  double compass_angle;
+  double compass_angle = 0.0;
   int8_t return_value = 0;
   deviceCalibration();  
   return_value = getHeading(&cx, &cy, &cz);
@@ -772,7 +772,7 @@ void MeCompass::read_EEPROM_Buffer(void)
   uint8_t parameter_buffer[sizeof(Compass_Calibration_Parameter)];
   struct Compass_Calibration_Parameter *parameter_pointer;
     
-  for(int address =0x00; address<sizeof(Compass_Calibration_Parameter); address++)
+  for(size_t address =0x00; address<sizeof(Compass_Calibration_Parameter); address++)
   {
     parameter_buffer[address]=EEPROM.read(START_ADDRESS_OF_EEPROM_BUFFER + address);
   }  
@@ -829,7 +829,7 @@ void MeCompass::write_EEPROM_Buffer(struct Compass_Calibration_Parameter *parame
                                               + parameter_pointer -> Rotation_Axis 
                                               + 0xaa );  
   buffer_pointer = (uint8_t *)parameter_pointer;  
-  for(int address = 0x00; address < sizeof(Compass_Calibration_Parameter); address++)
+  for(size_t address = 0x00; address < sizeof(Compass_Calibration_Parameter); address++)
   {
     EEPROM.write(START_ADDRESS_OF_EEPROM_BUFFER + address, *(buffer_pointer+address));
   }  

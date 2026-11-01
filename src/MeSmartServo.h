@@ -144,27 +144,6 @@ union sysex_message{
   sysex_message_type val;
 };
 
-union{
-  uint8_t byteVal[8];
-  double doubleVal;
-}val8byte;
-
-union{
-  uint8_t byteVal[4];
-  float floatVal;
-  long longVal;
-}val4byte;
-
-union{
-  uint8_t byteVal[2];
-  short shortVal;
-}val2byte;
-
-union{
-  uint8_t byteVal[1];
-  uint8_t charVal;
-}val1byte;
-
 typedef struct
 {
   long angleValue;
@@ -690,6 +669,19 @@ public:
 
 private:
   union sysex_message sysex;
+  union{
+    uint8_t byteVal[4];
+    float floatVal;
+    long longVal;
+  }val4byte;
+  union{
+    uint8_t byteVal[2];
+    short shortVal;
+  }val2byte;
+  union{
+    uint8_t byteVal[1];
+    uint8_t charVal;
+  }val1byte;
   volatile int16_t sysexBytesRead;
   volatile uint8_t servo_num_max;
   volatile uint16_t resFlag;

@@ -189,6 +189,7 @@ uint8_t keyPressed = KEY_NULL;
  
 void readButtonInner(uint8_t pin, int8_t s)
 {
+  (void)s;
   pin = pgm_read_byte(&analogs[pin]);
   pinMode(pin,INPUT);
   boolean currentPressed = !(analogRead(pin)>10);
@@ -594,7 +595,7 @@ void readSensor(int device){
    }
    break;
    case IRREMOTECODE:{
-     if(irRead<0xff){
+     if((uint8_t)irRead<0xff){
        sendByte(irRead);
      }
      irRead = 0;

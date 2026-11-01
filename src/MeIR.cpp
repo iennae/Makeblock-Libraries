@@ -564,7 +564,7 @@ void MeIR::sendString(String s)
   unsigned long l;
   uint8_t data;
   s.concat('\n');
-  for(int i = 0;i < s.length();i++)
+  for(unsigned int i = 0;i < s.length();i++)
   {
     data = s.charAt(i);
     l = 0x0000ffff & (uint8_t)(~data);

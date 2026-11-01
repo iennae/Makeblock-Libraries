@@ -609,6 +609,7 @@ double MeGyro::getAngle(uint8_t index) const
   {
     return getAngleZ();
   }
+  return 0;
 }
 
 /**
@@ -657,6 +658,7 @@ void MeGyro::deviceCalibration(void)
   for(x = 0; x < num; x++)
   {
     return_value = readData(0x43, i2cData, 6);
+    (void)return_value;
     xSum += ( (i2cData[0] << 8) | i2cData[1] );
     ySum += ( (i2cData[2] << 8) | i2cData[3] );
     zSum += ( (i2cData[4] << 8) | i2cData[5] );

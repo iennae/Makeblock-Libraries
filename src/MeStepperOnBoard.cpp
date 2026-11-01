@@ -557,6 +557,7 @@ boolean MeStepperOnBoard::run(void)
     computeNewSpeed();
     return true;
   }
+  return false;
 }
 
 /**

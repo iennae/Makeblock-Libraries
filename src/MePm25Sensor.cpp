@@ -572,6 +572,7 @@ MePm25Sensor::MePm25Sensor(uint8_t receivePin, uint8_t transmitPin, bool inverse
             rxflag |= 0x01;
         }
     }           
+    return 0;
   }
  /**
  * \par Function

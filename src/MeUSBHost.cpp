@@ -42,7 +42,7 @@
  * @example TestUSBHsot.ino
  *
  * Inspired by
- * /* 2004.03.05, 2004.8.18, 2005.12.29
+ * 2004.03.05, 2004.8.18, 2005.12.29
  * ****************************************
  * **  Copyright  (C)  W.ch  1999-2005   **
  * **  Web:  http://www.winchiphead.com  **
@@ -547,6 +547,8 @@ void MeUSBHost::resetBus()
   Serial.print("set mode 6: 0x");
   Serial.print(c,HEX);
   Serial.println();
+#else
+  (void)c;
 #endif
   delay(10);
 }
@@ -636,6 +638,8 @@ int16_t MeUSBHost::initHIDDevice()
           Serial.print(" 0x");
           Serial.print(p_cfg_descr->endp_descr[0].bDescriptorType,HEX);
           Serial.println();
+#else
+          (void)len;
 #endif
           if(p_cfg_descr->endp_descr[0].bDescriptorType==0x21){ // skip hid des
             tmpEp = (PUSB_ENDP_DESCR)((int8_t*)(&(p_cfg_descr->endp_descr[0]))+p_cfg_descr->endp_descr[0].bLength); // get the real ep position
@@ -716,6 +720,7 @@ int16_t MeUSBHost::probeDevice()
   }
   if( initHIDDevice()==1)
     device_online=true;
+  return device_online ? 1 : 0;
 }
 
 

@@ -3,7 +3,6 @@ name: Arduino CI (Original mBot / mCore)
 on:
   push:
     branches:
-      - master
       - main
   pull_request:
 
