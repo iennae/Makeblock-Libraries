@@ -6,6 +6,12 @@ The notes below are preserved from those prior upstream repositories to retain f
 
 ---
 
+## Fork Additions (`iennae/Makeblock-Libraries`)
+
+Newly created files in this fork (such as `.github/workflows/arduino-ci.yml`) are **Copyright 2026 Jennifer Davis** and licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0). Existing upstream library files and firmwares retain their original Makeblock and contributor copyright notices and licenses.
+
+---
+
 ## Upstream Maintainer Note (`Makeblock Library v3.31.0 - Updated`)
 
 > *Preserved from Nicolas Bourré / Nick B (`Makeblock Drive Updated` v3.31.0):*
